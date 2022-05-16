@@ -27,17 +27,13 @@ public class DownloadURLFile {
 	        	public void run() {
 	      
 	        		for(int i=10;i<32;i++) {
-	        		String res = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/2022-05-"+i+"-new-addressbook.csv","D:");
-	        	    System.out.println(res);
+	        		String add = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/2022-05-"+i+"-new-addressbook.csv","D:");
+	        		 String sub = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/2022-05-"+i+"-new-subrogation.csv","D:");  
+	        		System.out.println(add+sub);
 	        	    } 
 	        }
 	       } 
-	      
 	        repeatTimer.schedule(new TimerTest(), delay, period);
-	         
-	       
-	        
-	    	
 	    }  
 	  
 	  

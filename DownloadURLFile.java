@@ -1,4 +1,4 @@
-package ±Æµ{;
+package hash;
 
 import java.io.File;  
 import java.net.URL;
@@ -19,8 +19,8 @@ public class DownloadURLFile {
 	    public static void main(String[] args) {  
 	  
 	    	  
-	    	long delay = 3000L; // ©µ¿ğ¶}©l°õ¦æªº®É¶¡¡]²@¬í¡^¡A©µ¿ğ3¬í
-	        long period = 86400000; // ­«½Æªº®É¶¡¡]²@¬í¡^¡A¶¡®æ24H
+	    	long delay = 3000L; // å»¶é²é–‹å§‹åŸ·è¡Œçš„æ™‚é–“ï¼ˆæ¯«ç§’ï¼‰ï¼Œå»¶é²3ç§’
+	        long period = 86400000; // é‡è¤‡çš„æ™‚é–“ï¼ˆæ¯«ç§’ï¼‰ï¼Œé–“æ ¼24H
 	        Timer repeatTimer = new Timer(); 
 	    
 	        class TimerTest extends TimerTask {

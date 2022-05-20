@@ -12,41 +12,35 @@ import java.time.LocalDate;
 
 
 public class TimerTest02 {
-Timer timer;
-public TimerTest02(){
-Date time = getTime();
-//System.out.println("指定時間time="  + time);
-timer = new Timer();
-timer.schedule(new TimerTasker(), time);
-}
-public Date getTime(){
-Calendar calendar = Calendar.getInstance();
-calendar.set(Calendar.HOUR_OF_DAY, 12);
-calendar.set(Calendar.MINUTE, 00);
-calendar.set(Calendar.SECOND, 00);
-Date time = calendar.getTime();
-return time;
-}
-public static void main(String[] args) {
-new TimerTest02();
-}
-
-
-	 class TimerTasker extends TimerTask{
-		@Override
-		public void run() {
-		//	System.out.println("指定時間執行執行緒任務...");
-			LocalDate todaysDate = LocalDate.now();
-		//	LocalDate.
-			String add = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/"+todaysDate.minusDays(1L)+"-new-addressbook.csv","D:");
-			String sub = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/"+todaysDate.minusDays(1L)+"-new-subrogation.csv","D:");  
-			System.out.println(add+sub);
-		//	LocalDate todaysDate = LocalDate.now();
-	        System.out.println(todaysDate);
-			
-		}
+	Timer timer;
+	public TimerTest02(){
+		Date time = getTime();
+		timer = new Timer();
+		timer.schedule(new TimerTasker(), time);
 	}
-	//}
+	public Date getTime(){
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.HOUR_OF_DAY, 12);
+		calendar.set(Calendar.MINUTE, 00);
+		calendar.set(Calendar.SECOND, 00);
+		Date time = calendar.getTime();
+		return time;
+	}
+		public static void main(String[] args) {
+			new TimerTest02();
+		}
+
+		class TimerTasker extends TimerTask{
+			
+			public void run() {
+				LocalDate todaysDate = LocalDate.now();
+				String add = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/"+todaysDate.minusDays(1L)+"-new-addressbook.csv","D:");
+				String sub = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/"+todaysDate.minusDays(1L)+"-new-subrogation.csv","D:");  
+				System.out.println(add+sub);
+	//        	System.out.println(todaysDate);
+			}
+	}
+
 	
 	 public static String downloadFromUrl(String url,String dir) {  
 		  

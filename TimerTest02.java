@@ -37,8 +37,9 @@ new TimerTest02();
 		public void run() {
 		//	System.out.println("指定時間執行執行緒任務...");
 			LocalDate todaysDate = LocalDate.now();
-			String add = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/"+todaysDate+"-new-addressbook.csv","D:");
-			String sub = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/"+todaysDate+"-new-subrogation.csv","D:");  
+		//	LocalDate.
+			String add = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/"+todaysDate.minusDays(1L)+"-new-addressbook.csv","D:");
+			String sub = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/"+todaysDate.minusDays(1L)+"-new-subrogation.csv","D:");  
 			System.out.println(add+sub);
 		//	LocalDate todaysDate = LocalDate.now();
 	        System.out.println(todaysDate);

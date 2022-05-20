@@ -8,7 +8,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.apache.commons.io.FileUtils;
-
+import java.time.LocalDate;
 
 
 public class TimerTest02 {
@@ -21,26 +21,31 @@ timer.schedule(new TimerTasker(), time);
 }
 public Date getTime(){
 Calendar calendar = Calendar.getInstance();
-calendar.set(Calendar.HOUR_OF_DAY, 11);
-calendar.set(Calendar.MINUTE, 39);
+calendar.set(Calendar.HOUR_OF_DAY, 12);
+calendar.set(Calendar.MINUTE, 00);
 calendar.set(Calendar.SECOND, 00);
 Date time = calendar.getTime();
 return time;
 }
 public static void main(String[] args) {
 new TimerTest02();
-
-
 }
-	public class TimerTasker extends TimerTask{
-		//@Override
+
+
+	 class TimerTasker extends TimerTask{
+		@Override
 		public void run() {
-			System.out.println("指定時間執行執行緒任務...");
-			String add = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/2022-05-09-new-addressbook.csv","D:");
-			String sub = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/2022-05-09-new-subrogation.csv","D:");  
+		//	System.out.println("指定時間執行執行緒任務...");
+			LocalDate todaysDate = LocalDate.now();
+			String add = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/"+todaysDate+"-new-addressbook.csv","D:");
+			String sub = downloadFromUrl("https://www.good.nat.gov.tw/regcenter/csv/"+todaysDate+"-new-subrogation.csv","D:");  
 			System.out.println(add+sub);
+		//	LocalDate todaysDate = LocalDate.now();
+	        System.out.println(todaysDate);
+			
 		}
 	}
+	//}
 	
 	 public static String downloadFromUrl(String url,String dir) {  
 		  
